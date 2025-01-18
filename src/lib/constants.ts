@@ -1,6 +1,6 @@
-export const PROJECT_ID = 'link-frame-hub';
+export const PROJECT_ID = 'LinkFrameHub';
 export const PROJECT_TITLE = "LinkFrameHub";
-export const PROJECT_DESCRIPTION = "Avneesh's Social Link Hub";
+export const PROJECT_DESCRIPTION = "Your decentralized social link hub on Farcaster";
 
 export const SOCIAL_LINKS = [
   {
