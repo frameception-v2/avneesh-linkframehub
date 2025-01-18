@@ -17,19 +17,50 @@ import { createStore } from "mipd";
 import { Label } from "~/components/ui/label";
 import { PROJECT_TITLE } from "~/lib/constants";
 
-function ExampleCard() {
+function LinkTree() {
   return (
     <Card className="border-neutral-200 bg-white">
       <CardHeader>
-        <CardTitle className="text-neutral-900">Welcome to the Frame Template</CardTitle>
+        <CardTitle className="text-neutral-900">Avneesh's Links</CardTitle>
         <CardDescription className="text-neutral-600">
-          This is an example card that you can customize or remove
+          Connect with me across platforms
         </CardDescription>
       </CardHeader>
+      <CardContent className="flex flex-col gap-2">
+        {SOCIAL_LINKS.map((link) => (
+          <a
+            key={link.name}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 p-2 rounded-md hover:bg-neutral-100 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              sdk.actions.openUrl(link.url);
+            }}
+          >
+            <span className="text-lg">{link.icon}</span>
+            <span className="text-neutral-800">{link.name}</span>
+          </a>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+function RecentPosts() {
+  return (
+    <Card className="border-neutral-200 bg-white mt-4">
+      <CardHeader>
+        <CardTitle className="text-neutral-900">Recent Activity</CardTitle>
+      </CardHeader>
       <CardContent className="text-neutral-800">
-        <p>
-          Your frame content goes here. The text is intentionally dark to ensure good readability.
-        </p>
+        <div className="space-y-2">
+          <p>📝 Framedl PRO 2025-01-14 3/6*</p>
+          <p>👋 Send me a yo</p>
+          <p>🎉 finally 😮‍💨</p>
+          <p>🏀 Join me on Bracket Frame 👀</p>
+        </div>
       </CardContent>
     </Card>
   );
@@ -137,7 +168,8 @@ export default function Frame(
     >
       <div className="w-[300px] mx-auto py-2 px-2">
         <h1 className="text-2xl font-bold text-center mb-4 text-neutral-900">{title}</h1>
-        <ExampleCard />
+        <LinkTree />
+        <RecentPosts />
       </div>
     </div>
   );
